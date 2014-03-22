@@ -24,7 +24,8 @@ pl.title('Power duration', fontsize=14, fontweight='bold')
 
 def fpower2(t, P1,tau1, P2,tau2, alpha2):
 	# P|t = P1 ( tau1 / t) ( 1 - exp[ -t / tau1 ] ) + P2 / ( 1 + t / tau2 ) * alpha2
-	return P1*(tau1/t)*(1 - np.exp(-t/tau1)) + P2/np.power((1+ t/tau2),alpha2)
+	# return P1*(tau1/t)*(1 - np.exp(-t/tau1)) + P2/np.power((1+ t/tau2),alpha2)
+	return P1*(tau1/t)*(1 - np.exp(-t/tau1)) + P2/np.power((1+ t/(alpha2*tau2)),alpha2)
 
 X = np.array(times)
 Y = np.array(power)
